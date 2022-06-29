@@ -1,6 +1,7 @@
 package pro.sky.java.course2.mapweb;
 
 import org.springframework.stereotype.Service;
+import pro.sky.java.course2.mapweb.exception.EmployeeAlreadyAddedException;
 import pro.sky.java.course2.mapweb.exception.EmployeeNotFoundException;
 
 import java.util.*;
@@ -9,7 +10,7 @@ import java.util.stream.Collectors;
 @Service
 public class EmployeeDepartmentService {
 
-    EmployeeBookService employeeBookService;
+    static EmployeeBookService employeeBookService;
 
     public EmployeeDepartmentService(EmployeeBookService employeeBookService) {
         this.employeeBookService = employeeBookService;
@@ -40,6 +41,7 @@ public class EmployeeDepartmentService {
                 .collect(Collectors.toList());
 
     }
+
     public List<Employee> getAllEmployees() {
         List<Employee> list = new ArrayList<>(employeeBookService.getAll().values());
         Comparator<Employee> comparator = new DepartmentComparator();
@@ -47,10 +49,10 @@ public class EmployeeDepartmentService {
         return list;
     }
 }
-class DepartmentComparator implements Comparator<Employee> {
 
-    @Override
-    public int compare(Employee o1, Employee o2) {
-        return o1.getDepartment() - o2.getDepartment();
+    class DepartmentComparator implements Comparator<Employee> {
+        @Override
+        public int compare(Employee o1, Employee o2) {
+            return o1.getDepartment() - o2.getDepartment();
+        }
     }
-}

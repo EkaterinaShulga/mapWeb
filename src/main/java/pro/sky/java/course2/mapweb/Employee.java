@@ -1,5 +1,7 @@
 package pro.sky.java.course2.mapweb;
 
+import org.apache.commons.lang3.StringUtils;
+
 import java.util.Objects;
 
 class Employee {
@@ -18,10 +20,6 @@ class Employee {
     public Employee(String surnameEmployee, String nameEmployee) {
         this.surnameEmployee = surnameEmployee;
         this.nameEmployee = nameEmployee;
-    }
-
-    public String getInformaitioForKey(String surnameEmployee, String nameEmployee) {
-        return getSurnameEmployee() + getNameEmployee();
     }
 
     public String getNameEmployee() {
