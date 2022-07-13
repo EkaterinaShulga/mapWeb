@@ -13,30 +13,33 @@ public class EmployeeBookService {
 
     Map<String, Employee> employeesMap = new HashMap<>();
 
-    public String checkSurname(String surname){
+    public String checkSurname(String surname) {
         String newSurname = "";
-        if(!StringUtils.isAlpha(surname) ){
-            throw new EmployeeIncorrectInputStringData();
-            }
-        if (!Character.isUpperCase(surname.charAt(0))){
-          return   newSurname =  StringUtils.capitalize(surname);
-        } return surname;
-    }
-    public String checkName(String name){
-        String newName = "";
-        if(!StringUtils.isAlpha(name)){
+        if (!StringUtils.isAlpha(surname)) {
             throw new EmployeeIncorrectInputStringData();
         }
-         if (!Character.isUpperCase(name.charAt(0))){
-           newName = StringUtils.capitalize(name);
-           return newName;
+        if (!Character.isUpperCase(surname.charAt(0))) {
+            return newSurname = StringUtils.capitalize(surname);
+        }
+        return surname;
+    }
+
+    public String checkName(String name) {
+        String newName = "";
+        if (!StringUtils.isAlpha(name)) {
+            throw new EmployeeIncorrectInputStringData();
+        }
+        if (!Character.isUpperCase(name.charAt(0))) {
+            newName = StringUtils.capitalize(name);
+            return newName;
         }
         return name;
     }
 
     public String getInformaitioForKey(String surnameEmployee, String nameEmployee) {
-        return  surnameEmployee + nameEmployee;
+        return surnameEmployee + nameEmployee;
     }
+
     public Employee putEmployee(String surnameEmployee, String nameEmployee, Integer salary, int department) {
         Employee employee = new Employee(checkSurname(surnameEmployee), checkName(nameEmployee), salary, department);
         if (employeesMap.containsKey(getInformaitioForKey(surnameEmployee, nameEmployee))) {

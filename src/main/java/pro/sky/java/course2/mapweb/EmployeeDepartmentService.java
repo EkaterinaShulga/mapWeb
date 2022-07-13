@@ -1,7 +1,6 @@
 package pro.sky.java.course2.mapweb;
 
 import org.springframework.stereotype.Service;
-import pro.sky.java.course2.mapweb.exception.EmployeeAlreadyAddedException;
 import pro.sky.java.course2.mapweb.exception.EmployeeNotFoundException;
 
 import java.util.*;
@@ -12,8 +11,8 @@ public class EmployeeDepartmentService {
 
     static EmployeeBookService employeeBookService;
 
-    public EmployeeDepartmentService(EmployeeBookService employeeBookService) {
-        this.employeeBookService = employeeBookService;
+    public  EmployeeDepartmentService(EmployeeBookService employeeBookService) {
+        this.employeeBookService =employeeBookService;
     }
 
     public Employee getEmployeeWithMaxSalary(int number) {
@@ -48,6 +47,7 @@ public class EmployeeDepartmentService {
         list.sort(comparator);
         return list;
     }
+
 }
 
     class DepartmentComparator implements Comparator<Employee> {

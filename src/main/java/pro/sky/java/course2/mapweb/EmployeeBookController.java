@@ -64,8 +64,4 @@ public class EmployeeBookController {
         return "Все сотрудики с распределением по отделам : " + employeeDepartmentService.getAllEmployees();
     }
 
-   /* @GetMapping("/all")
-    public List<Employee> getAllEmployees(){
-        return EmployeeDepartmentService.getAllEmployees();
-    }*/
 }
